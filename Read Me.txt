@@ -1,0 +1,9 @@
+Instructions:
+- Enter the name of the two students. The other text fields are not editable.
+- To fill the remaining text fields, use the external file and input the 1st mark
+of student 1 in line 1, the 1st subject of student 1 in line 2, the 2nd mark of
+student 2 in line 3, and so on, until you finish the 4th subject of the 2nd student
+on line 16. All lines after line 16 are not read by the program.
+- Save the external .dat file, then click the "Process" button in the program.
+- Ensure there are no additional lines AFTER line 16, and there are no additional
+spaces (characters produced by clicking spacebar) after the end of each line.

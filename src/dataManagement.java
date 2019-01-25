@@ -1,13 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: Ahmed Al-Hayali
+ * Last Edit: 21/12/18
+ * This program helps students organize, compare, and average their marks by semester.
  */
 
-/**
- *
- * @author ahalh7876
- */
+import java.io.*;
+
 public class dataManagement extends javax.swing.JFrame {
 
     /**
@@ -32,38 +30,42 @@ public class dataManagement extends javax.swing.JFrame {
         name1PromptLbl = new javax.swing.JLabel();
         name1IPTF = new javax.swing.JTextField();
         mark1PromptLbl = new javax.swing.JLabel();
-        mark1IPTF1 = new javax.swing.JTextField();
-        mark1IPTF2 = new javax.swing.JTextField();
-        mark1IPTF4 = new javax.swing.JTextField();
-        mark1IPTF3 = new javax.swing.JTextField();
-        avg1PromptLbl = new javax.swing.JLabel();
-        avgOPTF = new javax.swing.JTextField();
-        name1PromptLbl1 = new javax.swing.JLabel();
-        name1IPTF1 = new javax.swing.JTextField();
-        mark1PromptLbl1 = new javax.swing.JLabel();
-        mark1IPTF8 = new javax.swing.JTextField();
-        mark1IPTF7 = new javax.swing.JTextField();
-        mark1IPTF6 = new javax.swing.JTextField();
-        mark1IPTF5 = new javax.swing.JTextField();
-        avg1PromptLbl1 = new javax.swing.JLabel();
-        avgOPTF1 = new javax.swing.JTextField();
-        mark1IPTF9 = new javax.swing.JTextField();
-        mark1IPTF10 = new javax.swing.JTextField();
-        mark1IPTF11 = new javax.swing.JTextField();
-        name1IPTF2 = new javax.swing.JTextField();
-        avgOPTF2 = new javax.swing.JTextField();
-        mark1PromptLbl2 = new javax.swing.JLabel();
-        avg1PromptLbl2 = new javax.swing.JLabel();
-        name1PromptLbl2 = new javax.swing.JLabel();
-        mark1IPTF12 = new javax.swing.JTextField();
+        mark1TF1 = new javax.swing.JTextField();
+        mark1TF2 = new javax.swing.JTextField();
+        mark1TF3 = new javax.swing.JTextField();
+        mark1TF4 = new javax.swing.JTextField();
+        sub1PromptLbl = new javax.swing.JLabel();
+        sub1TF1 = new javax.swing.JTextField();
+        sub1TF2 = new javax.swing.JTextField();
+        sub1TF3 = new javax.swing.JTextField();
+        sub1TF4 = new javax.swing.JTextField();
+        name2PromptLbl = new javax.swing.JLabel();
+        name2IPTF = new javax.swing.JTextField();
+        mark2PromptLbl = new javax.swing.JLabel();
+        mark2TF1 = new javax.swing.JTextField();
+        mark2TF2 = new javax.swing.JTextField();
+        mark2TF3 = new javax.swing.JTextField();
+        mark2TF4 = new javax.swing.JTextField();
+        sub2PromptLbl = new javax.swing.JLabel();
+        sub2TF1 = new javax.swing.JTextField();
+        sub2TF2 = new javax.swing.JTextField();
+        sub2TF3 = new javax.swing.JTextField();
+        sub2TF4 = new javax.swing.JTextField();
+        processBtn = new javax.swing.JButton();
+        avg1Lbl = new javax.swing.JLabel();
+        avg1OPTF = new javax.swing.JTextField();
+        avg2Lbl = new javax.swing.JLabel();
+        avg2OPTF = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        bgPnl.setForeground(new java.awt.Color(240, 240, 240));
 
         titleLbl.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         titleLbl.setText("Ultimate Mark Management");
 
         primPromptLbl.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        primPromptLbl.setText("Please fill the text fields with the indicated information:");
+        primPromptLbl.setText("Please read the \"Read Me\" Text Document in the program files for instructions.");
 
         name1PromptLbl.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         name1PromptLbl.setText("Name:");
@@ -73,74 +75,99 @@ public class dataManagement extends javax.swing.JFrame {
         mark1PromptLbl.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         mark1PromptLbl.setText("Mark:");
 
-        mark1IPTF1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        mark1TF1.setEditable(false);
+        mark1TF1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        mark1IPTF2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        mark1TF2.setEditable(false);
+        mark1TF2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        mark1IPTF4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        mark1TF3.setEditable(false);
+        mark1TF3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        mark1IPTF3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        mark1TF4.setEditable(false);
+        mark1TF4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        avg1PromptLbl.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        avg1PromptLbl.setText("Average:");
+        sub1PromptLbl.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        sub1PromptLbl.setText("Subject:");
 
-        avgOPTF.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        sub1TF1.setEditable(false);
+        sub1TF1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        name1PromptLbl1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        name1PromptLbl1.setText("Name:");
+        sub1TF2.setEditable(false);
+        sub1TF2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        name1IPTF1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        sub1TF3.setEditable(false);
+        sub1TF3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        mark1PromptLbl1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        mark1PromptLbl1.setText("Mark:");
+        sub1TF4.setEditable(false);
+        sub1TF4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        mark1IPTF8.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        name2PromptLbl.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        name2PromptLbl.setText("Name:");
 
-        mark1IPTF7.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        name2IPTF.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        mark1IPTF6.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        mark2PromptLbl.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        mark2PromptLbl.setText("Mark:");
 
-        mark1IPTF5.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        mark2TF1.setEditable(false);
+        mark2TF1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        mark2TF1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mark2TF1ActionPerformed(evt);
+            }
+        });
 
-        avg1PromptLbl1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        avg1PromptLbl1.setText("Average:");
+        mark2TF2.setEditable(false);
+        mark2TF2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        avgOPTF1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        mark2TF3.setEditable(false);
+        mark2TF3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        mark1IPTF9.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        mark2TF4.setEditable(false);
+        mark2TF4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        mark1IPTF10.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        sub2PromptLbl.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        sub2PromptLbl.setText("Subject:");
 
-        mark1IPTF11.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        sub2TF1.setEditable(false);
+        sub2TF1.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        name1IPTF2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        sub2TF2.setEditable(false);
+        sub2TF2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        avgOPTF2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        sub2TF3.setEditable(false);
+        sub2TF3.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        mark1PromptLbl2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        mark1PromptLbl2.setText("Mark:");
+        sub2TF4.setEditable(false);
+        sub2TF4.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
-        avg1PromptLbl2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        avg1PromptLbl2.setText("Average:");
+        processBtn.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        processBtn.setText("Process");
+        processBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                processBtnActionPerformed(evt);
+            }
+        });
 
-        name1PromptLbl2.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        name1PromptLbl2.setText("Name:");
+        avg1Lbl.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        avg1Lbl.setText("Average:");
 
-        mark1IPTF12.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        avg1OPTF.setEditable(false);
+        avg1OPTF.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+
+        avg2Lbl.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        avg2Lbl.setText("Average:");
+
+        avg2OPTF.setEditable(false);
+        avg2OPTF.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout bgPnlLayout = new javax.swing.GroupLayout(bgPnl);
         bgPnl.setLayout(bgPnlLayout);
         bgPnlLayout.setHorizontalGroup(
             bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgPnlLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(titleLbl)
-                .addGap(111, 111, 111))
             .addGroup(bgPnlLayout.createSequentialGroup()
                 .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(bgPnlLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(primPromptLbl))
                     .addGroup(bgPnlLayout.createSequentialGroup()
                         .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(bgPnlLayout.createSequentialGroup()
@@ -152,37 +179,51 @@ public class dataManagement extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                                     .addComponent(mark1PromptLbl)
-                                    .addComponent(mark1IPTF1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(mark1IPTF2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(mark1IPTF3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(mark1IPTF4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(bgPnlLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addComponent(avg1PromptLbl)
-                                    .addComponent(avgOPTF, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(mark1TF1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(mark1TF2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(mark1TF3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(mark1TF4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(48, 48, 48)
                         .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(name1PromptLbl1)
-                            .addComponent(name1IPTF1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mark1PromptLbl1)
-                            .addComponent(mark1IPTF8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mark1IPTF7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mark1IPTF6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mark1IPTF5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(avg1PromptLbl1)
-                            .addComponent(avgOPTF1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(49, 49, 49)
+                            .addComponent(sub1PromptLbl)
+                            .addComponent(sub1TF1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sub1TF2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sub1TF3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sub1TF4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(name1PromptLbl2, javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(name1IPTF2, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mark1PromptLbl2, javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(mark1IPTF10, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mark1IPTF12, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mark1IPTF11, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mark1IPTF9, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(avg1PromptLbl2, javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(avgOPTF2, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(name2PromptLbl, javax.swing.GroupLayout.Alignment.CENTER)
+                                .addComponent(name2IPTF, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(mark2PromptLbl, javax.swing.GroupLayout.Alignment.CENTER)
+                                .addComponent(mark2TF1, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(mark2TF2, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(mark2TF3, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(mark2TF4, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(avg2Lbl, javax.swing.GroupLayout.Alignment.CENTER)
+                                .addComponent(avg2OPTF, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(55, 55, 55)
+                        .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(sub2PromptLbl)
+                            .addComponent(sub2TF1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sub2TF2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sub2TF3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sub2TF4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(processBtn)))
+                    .addGroup(bgPnlLayout.createSequentialGroup()
+                        .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(bgPnlLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(avg1Lbl)
+                                    .addComponent(avg1OPTF, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(bgPnlLayout.createSequentialGroup()
+                                .addGap(96, 96, 96)
+                                .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(primPromptLbl)
+                                    .addComponent(titleLbl))))
+                        .addGap(0, 103, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         bgPnlLayout.setVerticalGroup(
@@ -192,63 +233,75 @@ public class dataManagement extends javax.swing.JFrame {
                 .addComponent(titleLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(primPromptLbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bgPnlLayout.createSequentialGroup()
-                        .addComponent(name1PromptLbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(name1IPTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(mark1PromptLbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(mark1IPTF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addComponent(mark1IPTF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(mark1IPTF3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(mark1IPTF4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(avg1PromptLbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(avgOPTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(70, 70, 70)
+                        .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(bgPnlLayout.createSequentialGroup()
+                                .addComponent(mark1PromptLbl)
+                                .addGap(4, 4, 4)
+                                .addComponent(mark1TF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)
+                                .addComponent(mark1TF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(mark1TF3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(mark1TF4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(bgPnlLayout.createSequentialGroup()
+                                .addComponent(sub1PromptLbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sub1TF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)
+                                .addComponent(sub1TF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(sub1TF3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(sub1TF4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(bgPnlLayout.createSequentialGroup()
-                        .addComponent(name1PromptLbl1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(name1IPTF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(mark1PromptLbl1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(mark1IPTF8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)
-                        .addComponent(mark1IPTF7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(mark1IPTF6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(mark1IPTF5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(avg1PromptLbl1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(avgOPTF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(bgPnlLayout.createSequentialGroup()
+                                .addComponent(name2PromptLbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(name2IPTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(mark2PromptLbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(mark2TF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)
+                                .addComponent(mark2TF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(mark2TF3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(mark2TF4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(bgPnlLayout.createSequentialGroup()
+                                .addComponent(name1PromptLbl)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(name1IPTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(bgPnlLayout.createSequentialGroup()
+                                        .addComponent(processBtn)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(sub2PromptLbl)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(sub2TF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(11, 11, 11)
+                                        .addComponent(sub2TF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(sub2TF3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(sub2TF4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(bgPnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bgPnlLayout.createSequentialGroup()
-                        .addComponent(name1PromptLbl2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(name1IPTF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(mark1PromptLbl2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(mark1IPTF10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addComponent(mark1IPTF12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(mark1IPTF11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(mark1IPTF9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(avg1PromptLbl2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(avgOPTF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                        .addComponent(avg1Lbl)
+                        .addGap(4, 4, 4)
+                        .addComponent(avg1OPTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(bgPnlLayout.createSequentialGroup()
+                        .addComponent(avg2Lbl)
+                        .addGap(4, 4, 4)
+                        .addComponent(avg2OPTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -264,6 +317,94 @@ public class dataManagement extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    /**
+     * This is the only method. It runs when the process button is pressed. All actions are explained in comments
+     * @param evt 
+     */
+    private void processBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processBtnActionPerformed
+
+        //Declaration of arrays and other variables
+        double[] mark = new double[8];
+        double avgMark1 = 0, avgMark2 = 0;
+        String[] subject = new String[8];
+
+        //Try statement to check whether file could be found or not
+        try {
+            //Reads the external .dat file
+            FileReader file = new FileReader("studentMarks.dat");
+            BufferedReader buffer = new BufferedReader(file);
+
+            //A for loop to assign the values inputted in the external file to the 2 parallel arrays
+            for (int i = 0; i < 8; i++) {
+                subject[i] = buffer.readLine();
+                /* I tried transferring this try statement to another method, but I couldn't get it to work
+                My attempt at using an external method is a comment under this method */
+                try {
+                mark[i] = Double.parseDouble(buffer.readLine());
+                }
+                catch (NumberFormatException nfe) {
+                    System.err.println("Please enter a valid input into the external file.\n");
+                }
+                //An if statement to add to the "average" mark of the first student
+                if (i < 4) {
+                    avgMark1 += mark[i];
+                //An if statement to add to the "average" mark of the second student
+                } else if (i < 8) {
+                    avgMark2 += mark[i];
+                }
+            }
+            //Closes buffered reader to stop reading the file
+            buffer.close();
+          //Catches fileread exceptions to allow user to continue using program after fileread error occurs
+        } catch (IOException e) {
+            System.err.println("The file was not found.");
+        }
+
+        //Sets all the text fields to the information provided by the user in the external file
+        sub1TF1.setText(subject[0]);
+        sub1TF2.setText(subject[1]);
+        sub1TF3.setText(subject[2]);
+        sub1TF4.setText(subject[3]);
+        mark1TF1.setText(Double.toString(mark[0]));
+        mark1TF2.setText(Double.toString(mark[1]));
+        mark1TF3.setText(Double.toString(mark[2]));
+        mark1TF4.setText(Double.toString(mark[3]));
+        sub2TF1.setText(subject[4]);
+        sub2TF2.setText(subject[5]);
+        sub2TF3.setText(subject[6]);
+        sub2TF4.setText(subject[7]);
+        mark2TF1.setText(Double.toString(mark[4]));
+        mark2TF2.setText(Double.toString(mark[5]));
+        mark2TF3.setText(Double.toString(mark[6]));
+        mark2TF4.setText(Double.toString(mark[7]));
+
+        //Divides the "average" mark which previously was the total by 4 to provide the true average.
+        avgMark1 = Math.round(avgMark1/4);
+        avg1OPTF.setText(Double.toString(avgMark1));
+        avgMark2 = Math.round(avgMark2/4);
+        avg2OPTF.setText(Double.toString(avgMark2));
+    }//GEN-LAST:event_processBtnActionPerformed
+
+    /**
+     * This method checks to make sure the input in the external file can
+     * be converted to a double without an error or the program stopping
+     * @param strngMark
+     * @return mark
+     */
+//    public double markParse(String strngMark) {
+//    double mark;
+//        try {
+//                mark = Double.parseDouble(buffer.readLine());
+//                }
+//    catch (NumberFormatException nfe) {
+//        System.err.println("Please enter a valid input");
+//    }
+//    return mark;
+//}
+    private void mark2TF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mark2TF1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mark2TF1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -301,35 +442,37 @@ public class dataManagement extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel avg1PromptLbl;
-    private javax.swing.JLabel avg1PromptLbl1;
-    private javax.swing.JLabel avg1PromptLbl2;
-    private javax.swing.JTextField avgOPTF;
-    private javax.swing.JTextField avgOPTF1;
-    private javax.swing.JTextField avgOPTF2;
+    private javax.swing.JLabel avg1Lbl;
+    private javax.swing.JTextField avg1OPTF;
+    private javax.swing.JLabel avg2Lbl;
+    private javax.swing.JTextField avg2OPTF;
     private javax.swing.JPanel bgPnl;
-    private javax.swing.JTextField mark1IPTF1;
-    private javax.swing.JTextField mark1IPTF10;
-    private javax.swing.JTextField mark1IPTF11;
-    private javax.swing.JTextField mark1IPTF12;
-    private javax.swing.JTextField mark1IPTF2;
-    private javax.swing.JTextField mark1IPTF3;
-    private javax.swing.JTextField mark1IPTF4;
-    private javax.swing.JTextField mark1IPTF5;
-    private javax.swing.JTextField mark1IPTF6;
-    private javax.swing.JTextField mark1IPTF7;
-    private javax.swing.JTextField mark1IPTF8;
-    private javax.swing.JTextField mark1IPTF9;
     private javax.swing.JLabel mark1PromptLbl;
-    private javax.swing.JLabel mark1PromptLbl1;
-    private javax.swing.JLabel mark1PromptLbl2;
+    private javax.swing.JTextField mark1TF1;
+    private javax.swing.JTextField mark1TF2;
+    private javax.swing.JTextField mark1TF3;
+    private javax.swing.JTextField mark1TF4;
+    private javax.swing.JLabel mark2PromptLbl;
+    private javax.swing.JTextField mark2TF1;
+    private javax.swing.JTextField mark2TF2;
+    private javax.swing.JTextField mark2TF3;
+    private javax.swing.JTextField mark2TF4;
     private javax.swing.JTextField name1IPTF;
-    private javax.swing.JTextField name1IPTF1;
-    private javax.swing.JTextField name1IPTF2;
     private javax.swing.JLabel name1PromptLbl;
-    private javax.swing.JLabel name1PromptLbl1;
-    private javax.swing.JLabel name1PromptLbl2;
+    private javax.swing.JTextField name2IPTF;
+    private javax.swing.JLabel name2PromptLbl;
     private javax.swing.JLabel primPromptLbl;
+    private javax.swing.JButton processBtn;
+    private javax.swing.JLabel sub1PromptLbl;
+    private javax.swing.JTextField sub1TF1;
+    private javax.swing.JTextField sub1TF2;
+    private javax.swing.JTextField sub1TF3;
+    private javax.swing.JTextField sub1TF4;
+    private javax.swing.JLabel sub2PromptLbl;
+    private javax.swing.JTextField sub2TF1;
+    private javax.swing.JTextField sub2TF2;
+    private javax.swing.JTextField sub2TF3;
+    private javax.swing.JTextField sub2TF4;
     private javax.swing.JLabel titleLbl;
     // End of variables declaration//GEN-END:variables
 }
